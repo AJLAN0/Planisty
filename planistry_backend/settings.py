@@ -39,13 +39,19 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
+
+    # Your apps
     'users',
+    'semesters',
     'courses',
     'study_plans',
+    'files',
     'quizzes',
-    'tasks',
     'notifications',
 ]
+
+
+AUTH_USER_MODEL = 'users.User'
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
