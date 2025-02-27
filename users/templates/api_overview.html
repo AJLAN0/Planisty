@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Overview</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; padding: 20px; }
+        h1 { color: #2c3e50; }
+        .api-container { margin-top: 20px; }
+        .api-category { font-weight: bold; font-size: 1.2em; margin-top: 10px; }
+        .api-link { display: block; margin-left: 20px; color: #3498db; text-decoration: none; }
+        .api-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>API Overview</h1>
+    <div class="api-container">
+        <div class="api-category">Authentication</div>
+        <a href="/api/auth/register/" class="api-link">Register</a>
+        <a href="/api/auth/login/" class="api-link">Login</a>
+        <a href="/api/auth/token/refresh/" class="api-link">Token Refresh</a>
+
+        <div class="api-category">User Management</div>
+        <a href="#" class="api-link">User Profile (Coming Soon)</a>
+
+        <div class="api-category">Courses</div>
+        <a href="/api/courses/" class="api-link">List Courses</a>
+        <a href="/api/courses/1/" class="api-link">Course Details</a>
+
+        <div class="api-category">Study Plans</div>
+        <a href="/api/studyplans/" class="api-link">List Study Plans</a>
+        <a href="/api/studyplans/1/" class="api-link">Study Plan Details</a>
+
+        <div class="api-category">Tasks</div>
+        <a href="/api/tasks/" class="api-link">List Tasks</a>
+        <a href="/api/tasks/1/" class="api-link">Task Details</a>
+    </div>
+</body>
+</html>
