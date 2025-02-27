@@ -6,6 +6,7 @@ from rest_framework.permissions import AllowAny
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.views import TokenObtainPairView
 
+
 from .serializers import UserSerializer, LoginSerializer, TokenSerializer
 from django.contrib.auth import authenticate
 
@@ -39,3 +40,40 @@ from rest_framework_simplejwt.views import TokenRefreshView
 class RefreshTokenView(TokenRefreshView):
     serializer_class = TokenSerializer
 
+
+
+#####################
+
+from django.urls import reverse
+from django.http import JsonResponse
+from django.views.generic import TemplateView
+
+# Function to return all API endpoints as JSON
+def api_overview(request):
+    api_endpoints = {
+        "Authentication": {
+            "Register": request.build_absolute_uri(reverse('register')),
+            "Login": request.build_absolute_uri(reverse('login')),
+            "Token Refresh": request.build_absolute_uri(reverse('token_refresh')),
+        },
+        "User Management": {
+            "User Profile": "To be implemented",
+        },
+        "Courses": {
+            "List Courses": request.build_absolute_uri(reverse('course-list')),
+            "Course Details": request.build_absolute_uri(reverse('course-detail', args=[1])),
+        },
+        "Study Plans": {
+            "List Study Plans": request.build_absolute_uri(reverse('studyplan-list')),
+            "Study Plan Details": request.build_absolute_uri(reverse('studyplan-detail', args=[1])),
+        },
+        "Tasks": {
+            "List Tasks": request.build_absolute_uri(reverse('task-list')),
+            "Task Details": request.build_absolute_uri(reverse('task-detail', args=[1])),
+        },
+    }
+    return JsonResponse(api_endpoints, safe=False)
+
+# Optional: Display API Overview as an HTML Page
+class ApiOverviewPage(TemplateView):
+    template_name = "api_overview.html"
